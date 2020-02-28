@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title>Attendance Portal</title>
 </head>
-<body>
-    
+<body bgcolor="#F8F7F3">
+    <img src="logo.png" height="60px" width="115px">
+    <h3>Enter Login Credentials</h3>
+    <div>
+        <table>
+            <tr>
+                <td class="headings"><b>Login Name: </b></td>
+                <td><input type="text" id="user";</td>
+            </tr>
+            <tr>
+                <td class="headings"><b>Password: </b></td>
+                <td><input type="password" id="pwd"></td>
+            </tr>
+
+        </table>
+        <button onclick="login()" id="login">Login</button>
+        <button onclick="reset()" id="reset">Reset</button>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -1,0 +1,61 @@
+.wrapper{
+    background-color: transparent;
+    height: 550px;
+
+}
+
+.clock{
+    text-align: right;
+    color: #978A30;
+    font-weight: bold;
+}
+
+.sth{
+    text-align: left;
+    float: left;
+    width: 50%;
+    height: 100%;
+
+}
+
+h2{
+    color: #978A30;
+}
+
+.h2{
+    color: #978A30;
+}
+
+.headings{
+    color: #CEBB29;
+}
+
+.title{
+    color: #90A441;
+}
+
+button{
+    background-color: #90A441;
+    color: white;
+}
+
+section{
+    margin-left: 10%;
+    width: 80%;
+    height: 33%;
+    display: block;
+    overflow: hidden;
+    grid-template-columns: auto auto;
+}
+
+.tables {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 60px;
+}
+  
+td, th {
+    text-align: left;
+    padding: 8px;
+}
