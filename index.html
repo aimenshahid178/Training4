@@ -13,15 +13,15 @@
         <table>
             <tr>
                 <td class="headings"><b>Login Name: </b></td>
-                <td><input type="text" id="user";</td>
+                <td><input type="text" id="user" onfocus="this.value=''"></td>
             </tr>
             <tr>
                 <td class="headings"><b>Password: </b></td>
-                <td><input type="password" id="pwd"></td>
+                <td><input type="password" id="pwd" onfocus="this.value=''"></td>
             </tr>
 
         </table>
-        <button onclick="login()" id="login">Login</button>
+        <button onclick="login(document.getElementById('user').value, document.getElementById('pwd').value)" id="login">Login</button>
         <button onclick="reset()" id="reset">Reset</button>
     </div>
     <script src="index.js"></script>
