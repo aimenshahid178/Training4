@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Attendance Portal</title>
+</head>
+<body onload="startTime()" onload="showDate()" bgcolor="#F8F7F3">
+    <img src="logo.png" height="60px" width="115px">
+    <div id="user" class="clock">Welcome douchebag</div>
+    <div id="user" class="clock">Change Password ????????</div>
+    <div id="clock" class="clock"></div>
+    <div class="wrapper">
+        <section id="time_input" style="border-bottom: 1px solid;">
+            <div class="sth">
+                <h2>Mark Today's Attendance</h2>
+                <table>
+                    <tr>
+                        <td class="headings"><b>Time-in: </b></td>
+                        <td><button onclick="timeIn()">Time In</button></td>
+                    </tr>
+                    <tr>
+                        <td class="headings"><b>Time-out: </b></td>
+                        <td><button onclick="timeOut()">Time Out</button></td>
+                    </tr>
+
+                </table>
+                <input type="checkbox" id="overwrite" name="overwrite">
+                <label for="overwrite">Overwrite last time-out</label>
+            </div>
+            <div class="sth">
+                <table class="tables">
+                    <tr style="border-bottom: 1px solid;">
+                        <th class="h2">Time In</th>
+                        <th class="h2">Time Out</th>
+                    </tr>
+                    <tr>
+                        <td id="time_in" class="title">sdfasdf</td>
+                        <td id="time_out" class="title">asdfasdf</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="report" style="border-bottom: 1px solid;">
+            <div class="sth">
+                <h2>View Detailed Report</h2>
+                <table>
+                    <tr>
+                        <td class="headings"><b>From: </b></td>
+                        <td id="olddate" class="headings"></td>
+                    </tr>
+                    <tr>
+                        <td class="headings"><b>To: </b></td>
+                        <td id="currdate" class="headings"></td>
+                    </tr>
+
+                </table>
+                <button onclick="viewReport()">View Report</button>
+            </div>
+            <div class="sth">
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <td class="title"><b>Leaves this week: </b></td>
+                        <td class="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="title"><b>Violations this week: </b></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="title"><b>Hours worked this week: </b></td>
+                        <td class="title"></td>
+                    </tr>
+                    <tr>
+                        <td class="title"><b>Threshold Hours this week: </b></td>
+                        <td class="title"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </section>
+        <section id="missing">
+            <h2>Request Missing Entries</h2>
+                <table>
+                    <tr>
+                        <td class="headings"><b>From: </b></td>
+                        <td id="oldddate" class="headings"></td>
+                    </tr>
+                    <tr>
+                        <td class="headings"><b>To: </b></td>
+                        <td id="currddate" class="headings"></td>
+                    </tr>
+                </table>
+                <button onclick="requestMissing()">Request Missing</button>
+        </section>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
