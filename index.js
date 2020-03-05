@@ -1,7 +1,7 @@
-let users = ['aimen'];
-let passwords = ['123'];
 
-var input = document.getElementById("pwd");
+const url = 'http://localhost:3000';
+
+let input = document.getElementById("pwd");
 
 input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -10,18 +10,24 @@ input.addEventListener("keyup", function(event) {
     }
   });
 
-function login(user, password){
-    let found = false;
-    for(let i = 0; i < users.length; i++){
-        if(users[i] === user || passwords[i] === password){
-            window.location.replace("main.html");
-            found = true;
-        }
-    }
-    if(!found){
-        alert("Username or Password are incorrect. Please try again.");
-        reset();
-    }
+function login(user, password) {
+    fetch(url + '/auth', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: user,
+            pwd: password
+        })
+    }).then(res => {
+        return res.json();
+    }).then(data => {
+        if(data) window.location.replace("main.html");
+        else{alert("Username or Password are incorrect. Please try again.");
+        reset(); } 
+    }).catch(() => console.log('ERROR LOGIN'))
+    
 
 };
 

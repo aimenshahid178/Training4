@@ -8,8 +8,8 @@
 </head>
 <body onload="startTime()" onload="showDate()" bgcolor="#F8F7F3">
     <img src="logo.png" height="60px" width="115px">
-    <div id="user" class="clock">Welcome douchebag</div>
-    <div id="user" class="clock">Change Password ????????</div>
+    <div id="user_greeting" class="clock"></div>
+    <div id="nothing" class="clock"><button id="changepwd" onclick="change()">Change Password</button><button id="logout" onclick="logout()">Log Out</button></div>
     <div id="clock" class="clock"></div>
     <div class="wrapper">
         <section id="time_input" style="border-bottom: 1px solid;">
@@ -36,8 +36,8 @@
                         <th class="h2">Time Out</th>
                     </tr>
                     <tr>
-                        <td id="time_in" class="title">sdfasdf</td>
-                        <td id="time_out" class="title">asdfasdf</td>
+                        <td id="time_in" class="title"></td>
+                        <td id="time_out" class="title"></td>
                     </tr>
                 </table>
             </div>
@@ -49,10 +49,12 @@
                     <tr>
                         <td class="headings"><b>From: </b></td>
                         <td id="olddate" class="headings"></td>
+                        <td><input type="date" id="startDate"></td>
                     </tr>
                     <tr>
                         <td class="headings"><b>To: </b></td>
                         <td id="currdate" class="headings"></td>
+                        <td><input type="date" id="endDate"></td>
                     </tr>
 
                 </table>
@@ -62,19 +64,19 @@
                 <table style="margin-top: 20px;">
                     <tr>
                         <td class="title"><b>Leaves this week: </b></td>
-                        <td class="title"></td>
+                        <td class="title" id="leaves"></td>
                     </tr>
                     <tr>
                         <td class="title"><b>Violations this week: </b></td>
-                        <td></td>
+                        <td id="violations"></td>
                     </tr>
                     <tr>
                         <td class="title"><b>Hours worked this week: </b></td>
-                        <td class="title"></td>
+                        <td class="title" id="hours-worked"></td>
                     </tr>
                     <tr>
                         <td class="title"><b>Threshold Hours this week: </b></td>
-                        <td class="title"></td>
+                        <td class="title" id="threshold"></td>
                     </tr>
 
                 </table>
