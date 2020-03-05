@@ -40,6 +40,12 @@ db.connect((err) => {
         console.log(result);
         console.log('Timings table created...');
     });
+   /* sql = 'CREATE DEFINER=`root`@`localhost` EVENT `Add New Timing` ON SCHEDULE EVERY 1 DAY STARTS '2020-03-05 11:35:40.000000' ENDS '2020-05-31 11:35:40.000000' ON COMPLETION PRESERVE ENABLE DO INSERT INTO timings(date) VALUES(CURRENT_DATE)';
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        console.log(result);
+        console.log('Event created...');
+    }); */
 });
 
 // HTTP Requests
@@ -162,18 +168,42 @@ app.get('/threshold', (req, res) => {
 
 // Calculate leaves
 app.get('/leaves', (req, res) => {
-    sql = `SELECT * FROM timings WHERE id = ${userid} AND time_in IS NULL`;
+    sql = `SELECT * FROM timings WHERE leaves IS NULL`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
         res.json(result.length);
     })
+    sql = `UPDATE timings WHERE id=${userid} AND time_in IS NULL SET leaves = 'Yes'`
 });
 
 // Change password
 app.post('/change', (req, res) => {
+    let password = req.body.pwd;
+    sql = `UPDATE users WHERE id = ${userid} SET password = ${password}`
+    db.query(sql, function(err, result){
+        if(err) throw err;
+        console.log('Password Changed');
+    });
+});
+
+// Show Report
+app.get('/report', (req, res) => {
+    let date = '2020-03-05';
+    sql = `SELECT * FROM timings WHERE date = ${date}`;
+    db.query(sql, function(err, result){
+        if(err) throw err;
+        console.log(result);
+        res.send(result);
+    });
+
+});
+
+
+// Update Missing Times
+app.post('/missing', (req, res) => {
     let post = {
-        password = req.body.pwd
+        dfsdf
     };
     sql = `UPDATE users WHERE id = ${userid} SET ?`
     db.query(sql, post, function(err, result){
@@ -181,6 +211,7 @@ app.post('/change', (req, res) => {
         console.log('Password Changed');
     });
 });
+
 
 // Server Listening
 

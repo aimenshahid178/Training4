@@ -84,17 +84,24 @@ function msToTime(millisec) {
 
 function showDate(x=0){
     let d = new Date();
-    let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    let date = months[d.getMonth()] + ' '+ d.getDate() + ', ' + d.getFullYear();
-    document.getElementById("currdate").innerHTML = date;
-    document.getElementById("currddate").innerHTML = date;
+    document.getElementById("currdate").innerHTML = d.toDateString();
+    document.getElementById("currddate").innerHTML = d.toDateString();
     let old = new Date();
-    old.setDate(d.getDate() - 5);
-    date = months[old.getMonth()] + ' '+ old.getDate() + ', ' + old.getFullYear();
-    document.getElementById("olddate").innerHTML = date;
-    document.getElementById("oldddate").innerHTML = date;
+    old.setDate(d.getDate() - 5);    
+    /*let inrep_start = document.getElementById('startDate').value;
+    let inmiss_start = document.getElementById('starttDate').value;
+    let report_start = document.getElementById('olddate');
+    let missing_start = document.getElementById('oldddate');
+    inrep_start != null ? report_start.innerHTML = inrep_start : report_start.innerHTML = date;
+    inmiss_start != null ? missing_start.innerHTML = inmiss_start : missing_start.innerHTML = date; */
+    document.getElementById("olddate").innerHTML = old.toDateString();
+    document.getElementById("oldddate").innerHTML = old.toDateString();
 };
 showDate();
+
+function chooseDate(){
+    
+};
 
 let counter1 = 0;
 function timeIn(){
