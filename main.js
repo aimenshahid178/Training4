@@ -84,20 +84,35 @@ function msToTime(millisec) {
 
 function showDate(x=0){
     let d = new Date();
-    document.getElementById("currdate").innerHTML = d.toDateString();
-    document.getElementById("currddate").innerHTML = d.toDateString();
     let old = new Date();
     old.setDate(d.getDate() - 5);    
-    /*let inrep_start = document.getElementById('startDate').value;
+    let inrep_start = document.getElementById('startDate').value;
+    if(inrep_start == ''){
+        document.getElementById("olddate").innerHTML = d.toDateString();
+    }else{
+        document.getElementById("olddate").innerHTML = inrep_start;
+    }
     let inmiss_start = document.getElementById('starttDate').value;
-    let report_start = document.getElementById('olddate');
-    let missing_start = document.getElementById('oldddate');
-    inrep_start != null ? report_start.innerHTML = inrep_start : report_start.innerHTML = date;
-    inmiss_start != null ? missing_start.innerHTML = inmiss_start : missing_start.innerHTML = date; */
-    document.getElementById("olddate").innerHTML = old.toDateString();
-    document.getElementById("oldddate").innerHTML = old.toDateString();
+    if(inmiss_start == ''){
+        document.getElementById("oldddate").innerHTML = d.toDateString();
+    }else{
+        document.getElementById("oldddate").innerHTML = inmiss_start; 
+    }
+    let inrep_end = document.getElementById('endDate').value;
+    if(inrep_end == ''){
+        document.getElementById("currdate").innerHTML = old.toDateString();
+    }else{
+        document.getElementById("currdate").innerHTML = inrep_end;
+    }
+    let inmiss_end = document.getElementById('enddDate').value;
+    if(inmiss_end == ''){
+        document.getElementById("currddate").innerHTML = old.toDateString();
+    }else{
+        document.getElementById("currddate").innerHTML = inmiss_end;
+    }    
 };
 showDate();
+setInterval("showDate()", 1000);
 
 function chooseDate(){
     
@@ -169,7 +184,7 @@ function violations() {
 violations();
 
 function viewReport(){
-
+    window.open('report.html','_blank');
 };
 
 function requestMissing(){

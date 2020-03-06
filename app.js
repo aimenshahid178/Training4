@@ -168,13 +168,17 @@ app.get('/threshold', (req, res) => {
 
 // Calculate leaves
 app.get('/leaves', (req, res) => {
-    sql = `SELECT * FROM timings WHERE leaves IS NULL`;
+    sql = `UPDATE timings SET leaves = \'Yes\' WHERE id=${userid} AND time_in IS NULL`;
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log('Leaves updated');
+    })
+    sql = 'SELECT * FROM timings WHERE leaves IS NULL';
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
         res.json(result.length);
     })
-    sql = `UPDATE timings WHERE id=${userid} AND time_in IS NULL SET leaves = 'Yes'`
 });
 
 // Change password
@@ -188,8 +192,8 @@ app.post('/change', (req, res) => {
 });
 
 // Show Report
-app.get('/report', (req, res) => {
-    let date = '2020-03-05';
+app.post('/report', (req, res) => {
+    let date = req.body.date;
     sql = `SELECT * FROM timings WHERE date = ${date}`;
     db.query(sql, function(err, result){
         if(err) throw err;
@@ -201,7 +205,7 @@ app.get('/report', (req, res) => {
 
 
 // Update Missing Times
-app.post('/missing', (req, res) => {
+/*app.post('/missing', (req, res) => {
     let post = {
         dfsdf
     };
@@ -210,7 +214,7 @@ app.post('/missing', (req, res) => {
         if(err) throw err;
         console.log('Password Changed');
     });
-});
+}); */
 
 
 // Server Listening
