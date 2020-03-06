@@ -205,16 +205,16 @@ app.post('/report', (req, res) => {
 
 
 // Update Missing Times
-/*app.post('/missing', (req, res) => {
-    let post = {
-        dfsdf
-    };
-    sql = `UPDATE users WHERE id = ${userid} SET ?`
+app.post('/missing', (req, res) => {
+    let date = req.body.date;
+    let time_in = req.body.time_in;
+    let time_out = req.body.time_out;
+    sql = `UPDATE users WHERE id = ${userid} AND date = ${date} SET time_in = ${time_in} AND time_out = ${time_out}`
     db.query(sql, post, function(err, result){
         if(err) throw err;
-        console.log('Password Changed');
+        console.log('Missing Attendance Added');
     });
-}); */
+});
 
 
 // Server Listening
