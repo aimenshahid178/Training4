@@ -1,5 +1,5 @@
 //https://www.encodedna.com/javascript/dynamically-add-remove-rows-to-html-table-using-javascript-and-save-data.htm
-
+const url = "http://localhost:3000";
 
 let arrHead = new Array();
 arrHead = ['Day', 'Date', 'Time-in', 'Time-out', 'Hours worked', 'Threshold Hours', 'Leave'];
